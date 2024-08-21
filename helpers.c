@@ -72,6 +72,8 @@ void handle_file_input(char *filename)
 	FILE *file = fopen(filename, "r");
 	char *line = NULL;
 	size_t len = 0;
+	char **args;
+
 
 	if (!file)
 	{
@@ -81,7 +83,8 @@ void handle_file_input(char *filename)
 	while (getline(&line, &len, file) != -1)
 	{
 		strip_comments(line);
-		char **args = _strtok(line);
+
+		args = _strtok(line);
 
 		if (args[0] != NULL)
 		{
