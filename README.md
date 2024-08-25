@@ -40,4 +40,5 @@ Comments: Lines starting with # are treated as comments and ignored.
 
 **Contributors**:
 **Walid Mehelba:** Initial version of the simple shell project.
+
 **Laila Mohamed:** Contributions and enhancements to the project.
