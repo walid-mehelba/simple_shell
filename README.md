@@ -17,7 +17,7 @@ Supports command aliasing.
 Handles comments using #.
 
 **Example Commands:**
-```
+```ruby
 $ ls
 $ /bin/ls -l
 $ setenv MY_VAR HelloWorld
@@ -25,6 +25,27 @@ $ echo $MY_VAR
 $ unsetenv MY_VAR
 $ cd /tmp
 $ exit
+```
+**Installation**:
+
+To compile and use the simple shell, follow these steps:
+
+1. Clone the repository:
+
+```ruby
+git clone https://github.com/walid_mehelba/simple_shell.git
+```
+2. Navigate into the project directory:
+```ruby
+cd simple_shell
+```
+3. Compile the source code using GCC:
+```ruby
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```
+4. Run the shell:
+```ruby
+./hsh
 ```
 
 **Built-in Commands:**
