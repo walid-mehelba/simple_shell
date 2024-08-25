@@ -23,20 +23,41 @@ $ unsetenv MY_VAR
 $ cd /tmp
 $ exit
 ``
+
 **Built-in Commands:**
-exit: Exit the shell.
-env: Print the current environment variables.
-setenv VARIABLE VALUE: Set or modify an environment variable.
-unsetenv VARIABLE: Remove an environment variable.
-cd [DIRECTORY]: Change the current directory. If no directory is provided, it changes to the home directory.
-alias: Define or display aliases.
+1. ``exit``: Exit the shell.
+2. ``env``: Print the current environment variables.
+3. ``setenv VARIABLE VALUE``: Set or modify an environment variable.
+4. ``unsetenv VARIABLE``: Remove an environment variable.
+5. ``cd [DIRECTORY]``: Change the current directory. If no directory is provided, it changes to the home directory.
+6. ``alias``: Define or display aliases.
 
 **Advanced Features:**
 Support for Command Line Arguments: Commands can be provided with arguments, and the shell will parse and execute them correctly.
-PATH Handling: The shell uses the PATH environment variable to locate executable files.
-Logical Operators: The shell supports the use of && and || for command execution based on the success or failure of previous commands.
-Variable Replacement: Supports replacement for special variables like $? (exit status of the last command) and $$ (process ID of the shell).
-Comments: Lines starting with # are treated as comments and ignored.
+PATH Handling: The shell uses the ``PATH`` environment variable to locate executable files.
+Logical Operators: The shell supports the use of ``&&`` and ``||`` for command execution based on the success or failure of previous commands.
+Variable Replacement: Supports replacement for special variables like ``$?`` (exit status of the last command) and ``$$`` (process ID of the shell).
+Comments: Lines starting with ``#`` are treated as comments and ignored.
+
+**Testing**:
+To ensure the shell is working correctly, you can create a test script with different commands and execute it. For example, create a test_script.sh file with the following content:
+
+``
+#!/bin/bash
+echo "Testing simple shell"
+./simple_shell << EOF
+ls
+setenv MY_VAR Hello
+echo $MY_VAR
+unsetenv MY_VAR
+cd /
+pwd
+exit
+EOF
+``
+Run the test script:
+
+``bash test_script.sh ``
 
 **Contributors**:
 
