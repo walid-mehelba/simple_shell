@@ -28,5 +28,5 @@ void replace_variables(char **args);
 void handle_file_input(char *filename);
 void strip_comments(char *line);
 int launch_command(char **args);
-
+int shell_cd(char **args);
 #endif
