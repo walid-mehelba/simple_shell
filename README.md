@@ -15,14 +15,15 @@ Supports command aliasing.
 Handles comments using #.
 
 **Example Commands:**
-``$ ls
+```
+$ ls
 $ /bin/ls -l
 $ setenv MY_VAR HelloWorld
 $ echo $MY_VAR
 $ unsetenv MY_VAR
 $ cd /tmp
 $ exit
-``
+```
 
 **Built-in Commands:**
 1. ``exit``: Exit the shell.
