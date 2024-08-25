@@ -47,7 +47,7 @@ Comments: Lines starting with ``#`` are treated as comments and ignored.
 
 To ensure the shell is working correctly, you can create a test script with different commands and execute it. For example, create a test_script.sh file with the following content:
 
-```
+```ruby
 #!/bin/bash
 echo "Testing simple shell"
 ./simple_shell << EOF
