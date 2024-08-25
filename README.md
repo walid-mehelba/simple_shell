@@ -1,9 +1,11 @@
 **Simple Shell Project**
 
 **Introduction:**
+
 This project is a simple UNIX command-line interpreter, also known as a shell. It is a basic version of a Unix shell that reads commands from standard input, executes them, and returns the output. The project is written in C and adheres to the Betty coding style. The primary function of this shell is to execute commands provided by the user and handle basic shell functionalities.
 
 **Features:**
+
 Display a prompt and wait for the user to type a command.
 Execute commands with and without arguments.
 Handle the PATH environment variable to locate executable programs.
@@ -34,6 +36,7 @@ $ exit
 6. ``alias``: Define or display aliases.
 
 **Advanced Features:**
+
 Support for Command Line Arguments: Commands can be provided with arguments, and the shell will parse and execute them correctly.
 PATH Handling: The shell uses the ``PATH`` environment variable to locate executable files.
 Logical Operators: The shell supports the use of ``&&`` and ``||`` for command execution based on the success or failure of previous commands.
@@ -41,6 +44,7 @@ Variable Replacement: Supports replacement for special variables like ``$?`` (ex
 Comments: Lines starting with ``#`` are treated as comments and ignored.
 
 **Testing**:
+
 To ensure the shell is working correctly, you can create a test script with different commands and execute it. For example, create a test_script.sh file with the following content:
 
 ```
