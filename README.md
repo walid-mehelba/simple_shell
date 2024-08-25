@@ -62,7 +62,9 @@ EOF
 ```
 Run the test script:
 
-```bash test_script.sh ```
+```
+bash test_script.sh
+ ```
 
 **Contributors**:
 
