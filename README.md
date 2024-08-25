@@ -38,6 +38,6 @@ Logical Operators: The shell supports the use of && and || for command execution
 Variable Replacement: Supports replacement for special variables like $? (exit status of the last command) and $$ (process ID of the shell).
 Comments: Lines starting with # are treated as comments and ignored.
 
-**Contributors**
+**Contributors**:
 **Walid Mehelba:** Initial version of the simple shell project.
 **Laila Mohamed:** Contributions and enhancements to the project.
