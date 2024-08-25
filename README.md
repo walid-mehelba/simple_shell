@@ -44,15 +44,25 @@ To ensure the shell is working correctly, you can create a test script with diff
 
 ``
 #!/bin/bash
+``
 echo "Testing simple shell"
+``
 ./simple_shell << EOF
+``
 ls
+``
 setenv MY_VAR Hello
+``
 echo $MY_VAR
+``
 unsetenv MY_VAR
+``
 cd /
+``
 pwd
+``
 exit
+``
 EOF
 ``
 Run the test script:
