@@ -42,32 +42,22 @@ Comments: Lines starting with ``#`` are treated as comments and ignored.
 **Testing**:
 To ensure the shell is working correctly, you can create a test script with different commands and execute it. For example, create a test_script.sh file with the following content:
 
-``
+```
 #!/bin/bash
-``
 echo "Testing simple shell"
-``
 ./simple_shell << EOF
-``
 ls
-``
 setenv MY_VAR Hello
-``
 echo $MY_VAR
-``
 unsetenv MY_VAR
-``
 cd /
-``
 pwd
-``
 exit
-``
 EOF
-``
+```
 Run the test script:
 
-``bash test_script.sh ``
+```bash test_script.sh ```
 
 **Contributors**:
 
