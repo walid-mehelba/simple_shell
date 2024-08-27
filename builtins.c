@@ -1,14 +1,15 @@
 #include "shell.h"
 #include <limits.h>
-/**
 
-shell_cd - changes the current directory of the process
-@args: a double pointer to the arguments of the cd command
-Description: This function changes the current directory of the process.
-If no argument is given, it changes to the HOME directory.
-If the argument is "-", it changes to the previous directory.
-It also updates the PWD and OLDPWD environment variables.
-Return: 1 on success, -1 on failure */
+/**
+* shell_cd - changes the current directory of the process
+* @args: a double pointer to the arguments of the cd command
+* Description: This function changes the current directory of the process.
+* If no argument is given, it changes to the HOME directory.
+* If the argument is "-", it changes to the previous directory.
+* It also updates the PWD and OLDPWD environment variables.
+* Return: 1 on success, -1 on failure
+*/
 int shell_cd(char **args)
 {
 char cwd[PATH_MAX];
@@ -37,21 +38,20 @@ fprintf(stderr, "shell: OLDPWD not set\n");
 return (-1);
 }
 } else {
-if (chdir(args[1]) != 0) {
+if (chdir(args[1]) != 0)
+{
 perror("shell");
 return (-1);
 }
 }
-
-if (getcwd(cwd, PATH_MAX) == NULL) {
+if (getcwd(cwd, PATH_MAX) == NULL)
+{
 perror("getcwd");
 return (-1);
 }
 setenv("PWD", cwd, 1);
-
 oldpwd = getenv("PWD");
 setenv("OLDPWD", oldpwd, 1);
-
 return (1);
 }
 
