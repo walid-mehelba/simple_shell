@@ -90,5 +90,5 @@ return (-1);
 }
 }
 
-return update_directory();
+return (update_directory());
 }
