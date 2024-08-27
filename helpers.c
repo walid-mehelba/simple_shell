@@ -43,7 +43,7 @@ void handle_aliases(char **args)
 void replace_variables(char **args)
 {
 	int i = 0;
-	char *pid_str, *status_str;
+	char *pid_str, *status_str, *env_var;
 
 	while (args[i] != NULL)
 	{
@@ -55,14 +55,24 @@ void replace_variables(char **args)
 		}
 		else if (strcmp(args[i], "$?") == 0)
 		{
-			status_str = malloc(12);
-			sprintf(status_str, "%d", WEXITSTATUS(errno));
-			args[i] = status_str;
-		}
-		i++;
-	}
+ status_str = malloc(12);
+            if (status_str != NULL)
+            {
+                sprintf(status_str, "%d", WEXITSTATUS(errno));
+                args[i] = status_str;
+            }
+        }
+        else if (args[i][0] == '$' && strlen(args[i]) > 1)
+        {
+            env_var = getenv(args[i] + 1);
+            if (env_var != NULL)
+            {
+                args[i] = strdup(env_var);
+            }
+        }
+        i++;
+    }
 }
-
 /**
  * handle_file_input - Reads and executes commands from a file
  * @filename: The name of the file to read
