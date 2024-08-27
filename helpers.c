@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * handle_logical_operators - Processes logical operators (&&, ||) in commands
- * @args: Array of arguments, including logical operators
- */
+* handle_logical_operators - Processes logical operators (&&, ||) in commands
+* @args: Array of arguments, including logical operators
+*/
 void handle_logical_operators(char **args)
 {
 	int i = 0, status = 1;
@@ -27,56 +27,56 @@ void handle_logical_operators(char **args)
 }
 
 /**
- * handle_aliases - Handles alias creation and substitution
- * @args: Array of arguments
- */
+* handle_aliases - Handles alias creation and substitution
+* @args: Array of arguments
+*/
 void handle_aliases(char **args)
 {
-	/* Alias functionality can be implemented here */
-	(void)args;
+
+(void)args;
 }
 
 /**
- * replace_variables - Replaces shell variables like $$ and $?
- * @args: Array of arguments, possibly containing variables
- */
+* replace_variables - Replaces shell variables like $$ and $?
+* @args: Array of arguments, possibly containing variables
+*/
 void replace_variables(char **args)
 {
-	int i = 0;
-	char *pid_str, *status_str, *env_var;
+int i = 0;
+char *pid_str, *status_str, *env_var;
 
-	while (args[i] != NULL)
-	{
-		if (strcmp(args[i], "$$") == 0)
-		{
-			pid_str = malloc(12);
-			sprintf(pid_str, "%d", getpid());
-			args[i] = pid_str;
-		}
-		else if (strcmp(args[i], "$?") == 0)
-		{
- status_str = malloc(12);
-            if (status_str != NULL)
-            {
-                sprintf(status_str, "%d", WEXITSTATUS(errno));
-                args[i] = status_str;
-            }
-        }
-        else if (args[i][0] == '$' && strlen(args[i]) > 1)
-        {
-            env_var = getenv(args[i] + 1);
-            if (env_var != NULL)
-            {
-                args[i] = strdup(env_var);
-            }
-        }
-        i++;
-    }
+while (args[i] != NULL)
+{
+if (strcmp(args[i], "$$") == 0)
+{
+pid_str = malloc(12);
+sprintf(pid_str, "%d", getpid());
+args[i] = pid_str;
+}
+else if (strcmp(args[i], "$?") == 0)
+{
+status_str = malloc(12);
+if (status_str != NULL)
+{
+sprintf(status_str, "%d", WEXITSTATUS(errno));
+args[i] = status_str;
+}
+}
+else if (args[i][0] == '$' && strlen(args[i]) > 1)
+{
+env_var = getenv(args[i] + 1);
+if (env_var != NULL)
+{
+args[i] = strdup(env_var);
+}
+}
+i++;
+}
 }
 /**
- * handle_file_input - Reads and executes commands from a file
- * @filename: The name of the file to read
- */
+* handle_file_input - Reads and executes commands from a file
+* @filename: The name of the file to read
+*/
 void handle_file_input(char *filename)
 {
 	FILE *file = fopen(filename, "r");
@@ -110,9 +110,9 @@ void handle_file_input(char *filename)
 }
 
 /**
- * strip_comments - Removes comments from a line of input
- * @line: The input string
- */
+* strip_comments - Removes comments from a line of input
+* @line: The input string
+*/
 void strip_comments(char *line)
 {
 	char *comment_start = strchr(line, '#');

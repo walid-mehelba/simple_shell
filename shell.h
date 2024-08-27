@@ -7,7 +7,7 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <errno.h>
-
+#include <limits.h>
 #define MAX_INPUT 1024
 #define MAX_ARGS 100
 
@@ -29,6 +29,7 @@ void handle_file_input(char *filename);
 void strip_comments(char *line);
 int launch_command(char **args);
 int shell_cd(char **args);
-
-
+int update_directory(void);
+int change_to_home(char **args);
+int change_to_oldpwd(void);
 #endif
