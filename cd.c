@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <limits.h>
 /**
 * update_directory - Updates the PWD and OLDPWD environment variables.
 *
