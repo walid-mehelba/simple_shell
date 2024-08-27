@@ -14,9 +14,11 @@ int shell_cd(char **args)
 char cwd[PATH_MAX];
 char *oldpwd;
 
-if (args[1] == NULL) {
+if (args[1] == NULL)
+{
 args[1] = getenv("HOME");
-if (args[1] == NULL) {
+if (args[1] == NULL)
+{
 fprintf(stderr, "shell: expected argument to \"cd\"\n");
 return (-1);
 }

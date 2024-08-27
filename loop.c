@@ -9,20 +9,28 @@ void shell_loop(void)
 	char *line;
 	char **args;
 	int status = 1;
+	char *command;
 
 	do {
 		printf("$ ");
 		line = _getline();
 		strip_comments(line);
-		args = _strtok(line);
-		if (args[0] != NULL)
+
+		command = strtok(line, ";");
+		while (command != NULL)
 		{
-			replace_variables(args);
-			handle_aliases(args);
-			handle_logical_operators(args);
-			status = execute_command(args);
+			args = _strtok(command);
+			if (args[0] != NULL)
+			{
+				replace_variables(args);
+				handle_aliases(args);
+				handle_logical_operators(args);
+				status = execute_command(args);
+			}
+			free(args);
+			command = strtok(NULL, ";");
 		}
+
 		free(line);
-		free(args);
 	} while (status);
 }

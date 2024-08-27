@@ -10,7 +10,21 @@ char *_getline(void)
 	char *line = NULL;
 	size_t bufsize = 0;
 
-	getline(&line, &bufsize, stdin);
+	if (getline(&line, &bufsize, stdin) == -1)
+	{
+		if (feof(stdin))
+		{
+			free(line);
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			perror("shell: getline");
+			free(line);
+			exit(EXIT_FAILURE);
+		}
+	}
+
 	return (line);
 }
 
@@ -27,7 +41,11 @@ char **_strtok(char *line)
 	char *token;
 
 	if (!tokens)
+	{
+		fprintf(stderr, "shell: allocation error\n");
 		exit(EXIT_FAILURE);
+	}
+
 	token = strtok(line, " \t\r\n\a");
 	while (token != NULL)
 	{
